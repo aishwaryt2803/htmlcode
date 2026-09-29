@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+</head>
+
+<body>
+
+    <h1>My Portfolio</h1>
+
+    <h2>About Me</h2>
+    <p>
+        Hello! My name is Aishwary Tiwari.
+        I am a CSE-AI student at KIET Deemed to be University.
+        I am interested in coding, Artificial Intelligence and technology.
+    </p>
+
+    <h2>My Education</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Education</th>
+            <th>School/College</th>
+            <th>Marks / CGPA</th>
+        </tr>
+
+        <tr>
+            <td>Class 10th</td>
+            <td>Grammar Academy, Rath</td>
+            <td>89%</td>
+        </tr>
+
+        <tr>
+            <td>Class 12th</td>
+            <td>Grammar Academy, Rath
+                
+            </td>
+            <td>87%</td>
+        </tr>
+
+        <tr>
+            <td>B.Tech CSE-AI</td>
+            <td>KIET Deemed to be University</td>
+            <td>--</td>
+        </tr>
+    </table>
+
+    <h2>My Skills</h2>
+
+    <ul>
+        <li>C++</li>
+        <li>Python</li>
+        <li>HTML</li>
+        <li>Artificial Intelligence</li>
+    </ul>
+
+    <h2>Add Two Numbers</h2>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <br><br>
+
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br><br>
+
+    <button onclick="addNumbers()">Add</button>
+
+    <p id="result"></p>
+
+    <script>
+        function addNumbers() {
+
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+
+            let sum = a + b;
+
+            document.getElementById("result").innerHTML =
+                "Sum = " + sum;
+        }
+    </script>
+
+</body>
+</html>

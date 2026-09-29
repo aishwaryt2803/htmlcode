@@ -3,15 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
+
+    <style>
+        body {
+            
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Login</h1>
-    <form>
-        <label>User Name: </label>
-        <input type="text", minlength="1" maxlength="10" placeholder="Enter User Name" required><br>
-        <label>Password: </label>
-        <input typ="password" minlength="5" maxlength="15" placeholder="Enter Password" required>
-    </form>
+
+    <div class="login-box">
+        <h2>Login</h2>
+
+        <form>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter Email" required>
+
+            <label>Password:</label>
+            <input type="password" placeholder="Enter Password" required>
+            <button type="submit" href="register.html">Login </button>
+        </form>
+    </div>
+
 </body>
 </html>
