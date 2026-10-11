@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie | Taste the Happiness</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #faf7f0;
+            color: #302c26;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        /* Navigation */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #faf7f0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: #b65f3b;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #403a32;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #b65f3b;
+        }
+
+        /* Restaurant Hero Image */
+
+        .hero {
+            margin: 15px 4%;
+            min-height: 490px;
+            border-radius: 22px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(27, 24, 20, 0.78),
+                    rgba(27, 24, 20, 0.28),
+                    rgba(27, 24, 20, 0.05)
+                ),
+                url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+            padding: 50px 7%;
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 58px;
+            line-height: 1.15;
+            margin: 22px 0 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #f1e8df;
+            max-width: 440px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #c97850;
+            color: white;
+            padding: 14px 25px;
+            text-decoration: none;
+            border-radius: 7px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #a95634;
+        }
+
+        /* Welcome Section */
+
+        .welcome {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .small-title {
+            color: #b65f3b;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .welcome h2,
+        .section-heading h2,
+        .about h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 38px;
+            font-weight: 600;
+            margin: 12px 0;
+        }
+
+        .welcome p {
+            color: #82786c;
+            line-height: 1.8;
+        }
+
+        /* Food Menu */
+
+        .section-heading {
+            text-align: center;
+            padding: 35px 20px 15px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            padding: 25px 6%;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .food {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(70, 48, 30, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .food:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(70, 48, 30, 0.12);
+        }
+
+        .food img {
+            width: 100%;
+            height: 195px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .details {
+            padding: 18px;
+        }
+
+        .details h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 20px;
+            margin: 0 0 9px;
+        }
+
+        .details p {
+            color: #81776e;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 40px;
+        }
+
+        .food-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .price {
+            color: #b65f3b;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .order {
+            background: #302c26;
+            color: white;
+            border: none;
+            padding: 10px 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .order:hover {
+            background: #b65f3b;
+        }
+
+        /* About Section */
+
+        .about {
+            margin-top: 50px;
+            padding: 65px 20px;
+            background: #eee6d9;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.9;
+            color: #71665b;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #302c26;
+            color: #f6eee4;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: #e4a17e;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #d0c4b7;
+        }
+
+        /* Mobile Friendly */
+
+        @media (max-width: 1000px) {
+            .menu {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                margin: 8px 3%;
+                min-height: 430px;
+                background-position: center;
+            }
+
+            .hero-content {
+                padding: 30px 7%;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .welcome h2,
+            .section-heading h2,
+            .about h2 {
+                font-size: 30px;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+                padding: 20px 7%;
+            }
+
+            .food img {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Foodie.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#about">Our Story</a>
+        </nav>
+    </header>
+
+    <!-- Main Restaurant Image -->
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <span class="tag">Welcome to Foodie</span>
+
+            <h1>Good food.<br>Beautiful moments.</h1>
+
+            <p>
+                Discover delightful flavours, freshly prepared dishes,
+                and a dining experience made to bring people together.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Menu →</a>
+
+        </div>
+    </section>
+
+    <section class="welcome">
+        <span class="small-title">Made with love</span>
+
+        <h2>A little taste of happiness</h2>
+
+        <p>
+            Fresh ingredients, thoughtful cooking, and flavours
+            that make every meal feel special.
+        </p>
+    </section>
+
+    <section id="menu">
+
+        <div class="section-heading">
+            <span class="small-title">Our favourites</span>
+            <h2>Explore Our Menu</h2>
+            <p>Delicious choices for every craving.</p>
+        </div>
+
+        <div class="menu">
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Cheese Pizza">
+                <div class="details">
+                    <h3>Cheese Pizza</h3>
+                    <p>Classic pizza with melted cheese and fresh toppings.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹199</span>
+                        <button class="order" onclick="alert('You selected Cheese Pizza!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Classic Burger">
+                <div class="details">
+                    <h3>Classic Burger</h3>
+                    <p>A juicy burger layered with fresh vegetables.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹129</span>
+                        <button class="order" onclick="alert('You selected Classic Burger!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=600&q=80" alt="Italian Pasta">
+                <div class="details">
+                    <h3>Italian Pasta</h3>
+                    <p>Comforting pasta with herbs and rich flavours.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹159</span>
+                        <button class="order" onclick="alert('You selected Italian Pasta!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Fresh Salad">
+                <div class="details">
+                    <h3>Fresh Salad</h3>
+                    <p>A colourful mix of crisp, fresh ingredients.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹99</span>
+                        <button class="order" onclick="alert('You selected Fresh Salad!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="Noodles">
+                <div class="details">
+                    <h3>Hakka Noodles</h3>
+                    <p>Stir-fried noodles with vegetables and spices.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹119</span>
+                        <button class="order" onclick="alert('You selected Hakka Noodles!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Loaded Pizza">
+                <div class="details">
+                    <h3>Loaded Pizza</h3>
+                    <p>A delicious pizza packed with tasty toppings.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹249</span>
+                        <button class="order" onclick="alert('You selected Loaded Pizza!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Grilled Sandwich">
+                <div class="details">
+                    <h3>Grilled Sandwich</h3>
+                    <p>Toasted bread with a warm, savoury filling.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹89</span>
+                        <button class="order" onclick="alert('You selected Grilled Sandwich!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Ice Cream">
+                <div class="details">
+                    <h3>Ice Cream</h3>
+                    <p>A cool, creamy treat for your sweet cravings.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹79</span>
+                        <button class="order" onclick="alert('You selected Ice Cream!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80" alt="Donuts">
+                <div class="details">
+                    <h3>Chocolate Donuts</h3>
+                    <p>Soft, sweet donuts with a chocolate finish.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹69</span>
+                        <button class="order" onclick="alert('You selected Chocolate Donuts!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Cake">
+                <div class="details">
+                    <h3>Chocolate Cake</h3>
+                    <p>A rich dessert for every chocolate lover.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹149</span>
+                        <button class="order" onclick="alert('You selected Chocolate Cake!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" alt="Momos">
+                <div class="details">
+                    <h3>Veg Momos</h3>
+                    <p>Delicate dumplings served with spicy chutney.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹79</span>
+                        <button class="order" onclick="alert('You selected Veg Momos!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Samosa">
+                <div class="details">
+                    <h3>Samosa</h3>
+                    <p>A crispy Indian snack with spiced filling.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹30</span>
+                        <button class="order" onclick="alert('You selected Samosa!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Paneer Curry">
+                <div class="details">
+                    <h3>Paneer Curry</h3>
+                    <p>Soft paneer in a rich, spiced Indian gravy.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹189</span>
+                        <button class="order" onclick="alert('You selected Paneer Curry!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80" alt="Biryani">
+                <div class="details">
+                    <h3>Veg Biryani</h3>
+                    <p>Fragrant rice with vegetables and aromatic spices.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹179</span>
+                        <button class="order" onclick="alert('You selected Veg Biryani!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80" alt="Chicken Curry">
+                <div class="details">
+                    <h3>Chicken Curry</h3>
+                    <p>A warming curry with a blend of Indian spices.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹229</span>
+                        <button class="order" onclick="alert('You selected Chicken Curry!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80" alt="Crispy Chicken">
+                <div class="details">
+                    <h3>Crispy Chicken</h3>
+                    <p>Crunchy coating with a juicy, tender centre.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹199</span>
+                        <button class="order" onclick="alert('You selected Crispy Chicken!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Healthy Bowl">
+                <div class="details">
+                    <h3>Healthy Bowl</h3>
+                    <p>A fresh and colourful bowl full of goodness.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹139</span>
+                        <button class="order" onclick="alert('You selected Healthy Bowl!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" alt="French Fries">
+                <div class="details">
+                    <h3>French Fries</h3>
+                    <p>Golden potato fries with a crispy bite.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹89</span>
+                        <button class="order" onclick="alert('You selected French Fries!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80" alt="Celebration Cake">
+                <div class="details">
+                    <h3>Celebration Cake</h3>
+                    <p>A sweet centrepiece for your special moments.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹299</span>
+                        <button class="order" onclick="alert('You selected Celebration Cake!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=600&q=80" alt="Refreshing Drink">
+                <div class="details">
+                    <h3>Refreshing Drink</h3>
+                    <p>A chilled, refreshing drink to complement your meal.</p>
+                    <div class="food-bottom">
+                        <span class="price">₹59</span>
+                        <button class="order" onclick="alert('You selected Refreshing Drink!')">Order Now +</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <span class="small-title">Our story</span>
+        <h2>Food made for sharing</h2>
+        <p>
+            At Foodie, we believe the best memories begin around a table.
+            We bring together comforting favourites, fresh ingredients,
+            and a welcoming atmosphere to make every visit special.
+        </p>
+    </section>
+
+    <footer>
+        <div class="logo">Foodie.</div>
+        <p>Good food. Beautiful moments.</p>
+        <p>Contact: foodie@example.com</p>
+        <p>© 2026 Foodie Restaurant</p>
+    </footer>
+
+</body>
+</html>

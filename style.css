@@ -1,0 +1,166 @@
+/* ---------- Whole Page ---------- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #333;
+}
+
+
+/* ---------- Header ---------- */
+
+header {
+    background-color: #123c69;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 15px 0 0;
+}
+
+header h3 {
+    font-size: 20px;
+    margin: 10px 0 0;
+}
+
+
+/* ---------- Links ---------- */
+
+.links {
+    text-align: center;
+    background-color: #123c69;
+    padding: 15px;
+}
+
+.links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.links a:hover {
+    color: yellow;
+}
+
+
+/* ---------- All Sections ---------- */
+
+section {
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+
+/* ---------- Section Headings ---------- */
+
+section h1 {
+    color: #123c69;
+    border-bottom: 2px solid #123c69;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* ---------- Paragraphs ---------- */
+
+section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ---------- Education Table ---------- */
+
+#Education table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#Education th,
+#Education td {
+    border: 1px solid #999;
+    padding: 10px;
+}
+
+#Education th {
+    background-color: #123c69;
+    color: white;
+    text-align: left;
+}
+
+
+/* ---------- Skills ---------- */
+
+#Skills ul {
+    padding-left: 25px;
+}
+
+#Skills li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+
+/* ---------- Projects  - FlexBox ---------- */
+
+.project-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card{
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+}
+
+.project-card h3{
+    color: #123c69;
+    margin-top: 0;
+}
+
+.project-card a{
+    display: inline-block;
+    background-color: #123c69;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.project-card a:hover{
+    background-color: #0b2a4a;
+}
+
+
+/* ---------- Contact ---------- */
+
+#Contact h4 {
+    color: #123c69;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+#Contact a {
+    color: #123c69;
+    text-decoration: none;
+}
+
+#Contact a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
