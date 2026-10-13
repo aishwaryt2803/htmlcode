@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LULU STUDIO | Modern Hair Salon</title>
+
+    <style>
+        /* General Styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f3ed;
+            color: #3e3028;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #3e3028;
+            color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 3px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 0;
+            font-size: 15px;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e4bd91;
+            border-bottom: 2px solid #e4bd91;
+        }
+
+        /* Home Section */
+        .hero {
+            min-height: 480px;
+
+            background-image:
+                linear-gradient(
+                    rgba(40, 25, 18, 0.35),
+                    rgba(40, 25, 18, 0.35)
+                ),
+                url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .hero-content {
+            background-color: rgba(40, 25, 18, 0.78);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 650px;
+        }
+
+        .hero h2 {
+            font-size: 44px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .main-button {
+            display: inline-block;
+            background-color: #c49a6c;
+            color: white;
+            padding: 13px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #a87849;
+            transform: translateY(-3px);
+        }
+
+        /* Section Headings */
+        .services-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            color: #76665b;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* Services Layout */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Service Cards */
+        .service-card {
+            width: 270px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(62, 48, 40, 0.10);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(62, 48, 40, 0.20);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin: 18px 0 10px;
+        }
+
+        .service-card p {
+            color: #76665b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .service-card .price {
+            color: #9a6b3f;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .service-card a {
+            display: inline-block;
+            background-color: #3e3028;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .service-card a:hover {
+            background-color: #b17d50;
+            transform: translateY(-2px);
+        }
+
+        /* Special Offer Section */
+        .offer {
+            background-color: #c49a6c;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .offer h2 {
+            font-size: 30px;
+            margin-top: 0;
+        }
+
+        .offer p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .offer a {
+            display: inline-block;
+            background-color: white;
+            color: #3e3028;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .offer a:hover {
+            background-color: #3e3028;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #eadfd3;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: 15px auto;
+            line-height: 1.9;
+            color: #59483d;
+        }
+
+        /* Why Choose Us */
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 0 20px 55px;
+            background-color: #eadfd3;
+        }
+
+        .feature-card {
+            background-color: #fffaf5;
+            width: 220px;
+            padding: 25px 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            background-color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(62, 48, 40, 0.12);
+        }
+
+        .feature-card h3 {
+            color: #8b5e3c;
+        }
+
+        .feature-card p {
+            color: #76665b;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .contact p {
+            line-height: 1.9;
+        }
+
+        .contact a {
+            color: #8b5e3c;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: #3e3028;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e3028;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* Mobile Screen Styling */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 380px;
+            }
+
+            .hero-content {
+                padding: 25px 18px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .service-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .feature-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* Respect Reduced-Motion Preferences */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>LULU STUDIO</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#offer">Offers</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Your Style, Our Passion</h2>
+
+            <p>
+                Discover beauty, confidence, and a fresh new look
+                with our professional hair and beauty services.
+            </p>
+
+            <a href="#services" class="main-button">
+                Explore Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="section-description">
+            Professional care to help you look and feel your best.
+        </p>
+
+        <div class="services">
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80"
+                     alt="Haircut and Styling">
+                <h3>Haircut &amp; Styling</h3>
+                <p>Get a fresh haircut and a style that suits you.</p>
+                <p class="price">₹499</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80"
+                     alt="Hair Coloring">
+                <h3>Hair Coloring</h3>
+                <p>Refresh your look with beautiful hair colors.</p>
+                <p class="price">₹1499</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80"
+                     alt="Hair Spa">
+                <h3>Hair Spa</h3>
+                <p>Relax and nourish your hair with a spa treatment.</p>
+                <p class="price">₹799</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=600&q=80"
+                     alt="Party Hairstyle">
+                <h3>Party Hairstyle</h3>
+                <p>Look glamorous for parties and special occasions.</p>
+                <p class="price">₹999</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80"
+                     alt="Hair Treatment">
+                <h3>Hair Treatment</h3>
+                <p>Give your hair extra care and nourishment.</p>
+                <p class="price">₹1199</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80"
+                     alt="Men's Grooming">
+                <h3>Men's Grooming</h3>
+                <p>Stay sharp with professional grooming services.</p>
+                <p class="price">₹349</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80"
+                     alt="Nail Care">
+                <h3>Nail Care</h3>
+                <p>Beautiful nails with professional care.</p>
+                <p class="price">₹599</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=80"
+                     alt="Bridal Makeup">
+                <h3>Bridal Makeup</h3>
+                <p>Look stunning on your special day.</p>
+                <p class="price">₹2999</p>
+                <a href="#contact">Select Service</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="offer" id="offer">
+        <h2>Special Beauty Offer</h2>
+
+        <p>
+            Treat yourself to a new look!
+            Contact us to learn about our current salon offers.
+        </p>
+
+        <a href="#contact">Contact Us</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About LULU STUDIO</h2>
+
+        <p>
+            Welcome to LULU STUDIO, your destination for modern hair
+            styling and beauty care. Our goal is to provide a comfortable
+            experience and personalized services that match your style.
+        </p>
+
+        <p>
+            From stylish haircuts to hair treatments and bridal makeup,
+            we help you feel confident and look your best.
+        </p>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>Expert Stylists</h3>
+            <p>Professional care to help you find your perfect look.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Quality Products</h3>
+            <p>Beauty services using carefully selected products.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Relaxing Experience</h3>
+            <p>A welcoming space to refresh your style and unwind.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Affordable Prices</h3>
+            <p>Different services to suit a variety of budgets.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+
+        <p><strong>Address:</strong> Ghaziabad, India</p>
+
+        <p>
+            <strong>Phone:</strong>
+            <a href="tel:6306362601">6306362601</a>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:aishwaryt932@gmail.com">
+                aishwaryt932@gmail.com
+            </a>
+        </p>
+
+        <p><strong>Opening Hours:</strong> 10:00 AM - 9:00 PM</p>
+
+        <p>Visit us today and discover your new look!</p>
+
+        <a href="mailto:aishwaryt932@gmail.com" class="main-button">
+            Email Us
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 LULU STUDIO. All rights reserved.</p>
+        <p>Style | Beauty | Confidence</p>
+    </footer>
+
+</body>
+</html>
